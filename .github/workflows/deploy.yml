@@ -22,7 +22,8 @@ jobs:
       run: npm install
 
     - name: Build Angular app
-      run: npm run build -- --configuration production
+      run: ng build portfolio --configuration production
+
 
     - name: Configure Git
       run: |
@@ -33,5 +34,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages        # branch di destinazione
-        folder: dist/portfolio/browser # cartella da pubblicare
+        folder: dist/portfolio # cartella da pubblicare
         token: ${{ secrets.GITHUB_TOKEN }}
