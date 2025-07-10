@@ -27,7 +27,7 @@ jobs:
       run: ls -R dist/portfolio
 
     - name: Show index.html content (debug)
-      run: cat dist/portfolio/index.html
+      run: cat dist/portfolio/browser/index.html
 
     - name: Configure Git
       run: |
