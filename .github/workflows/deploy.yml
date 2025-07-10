@@ -33,5 +33,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages        # branch di destinazione
-        folder: dist/portfolio   # cartella da pubblicare
+        folder: dist/portfolio/browser # cartella da pubblicare
         token: ${{ secrets.GITHUB_TOKEN }}
