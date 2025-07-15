@@ -1,9 +1,18 @@
 <app-navbar></app-navbar>
-<div #grid class="relative p-10">
+<div
+  #grid
+  class="max-w-screen-lg mx-auto relative"
+  style="min-height: 400px;"
+>
   <div
     *ngFor="let image of images"
-    class="grid-item w-fill inline-block m-2 border"
+    class="grid-item inline-block m-2"
   >
-    <img [src]="image.url" class="w-full h-auto rounded shadow" />
+    <img
+      [src]="image.url"
+      class="w-full h-auto rounded shadow"
+    />
   </div>
 </div>
+
+<p class="text-center mt-4">Elementi per riga: {{ itemsPerRow }}</p>

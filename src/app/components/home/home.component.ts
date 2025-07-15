@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-// @ts-ignore
-import Packery from 'packery';
 import { CommonModule } from '@angular/common';
+import Packery from 'packery';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +14,31 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements AfterViewInit {
 
-  @ViewChild('grid') gridRef!: ElementRef;
+  @ViewChild('grid') gridRef!: ElementRef<HTMLDivElement>;
+  pckry!: any;
+  itemsPerRow = 0;
 
   ngAfterViewInit(): void {
-    new Packery(this.gridRef.nativeElement, {
+    this.pckry = new Packery(this.gridRef.nativeElement, {
       itemSelector: '.grid-item',
-      gutter: 10
+      gutter: 16,
     });
+
+    this.calculateItemsPerRow();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.calculateItemsPerRow();
+  }
+
+  calculateItemsPerRow() {
+    if (!this.gridRef) return;
+    const containerWidth = this.gridRef.nativeElement.offsetWidth;
+    // 150px width + 16px gutter on each side = 166 total approx.
+    const itemWidth = 150 + 16;
+    this.itemsPerRow = Math.floor(containerWidth / itemWidth);
+    console.log('Items per row:', this.itemsPerRow);
   }
 
   images = [
@@ -31,6 +48,7 @@ export class HomeComponent implements AfterViewInit {
     { url: 'https://th.bing.com/th/id/OIP.LQpngChY-os5h836ygw_dgHaHa?w=183&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7' },
     { url: 'https://th.bing.com/th/id/OIP.RSBXaKJUqNEvEMAZSiMBTAHaNK?w=115&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7' },
     { url: 'https://th.bing.com/th/id/OIP.cUiRTb58y6VYxJ6mAWQwZAHaJ2?w=127&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7' },
+    { url: 'https://th.bing.com/th/id/OIP.7u055CRB7P3_v1MTUYz3DAHaNJ?w=115&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7' },
     // ...
   ];
 
