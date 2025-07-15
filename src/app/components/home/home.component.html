@@ -1,2 +1,9 @@
 <app-navbar></app-navbar>
-<div></div>
+<div #grid class="relative p-10">
+  <div
+    *ngFor="let image of images"
+    class="grid-item w-fill inline-block m-2 border"
+  >
+    <img [src]="image.url" class="w-full h-auto rounded shadow" />
+  </div>
+</div>
