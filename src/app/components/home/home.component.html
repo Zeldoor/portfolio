@@ -1,9 +1,16 @@
 <app-navbar></app-navbar>
+<div appMasonry class="masonry-container">
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-  <app-card class="m-3"
-    *ngFor="let c of contents; trackBy: trackById"
-    [content]="c"
-    (onClickImageEvent)="openImageViewer($event)">
-  </app-card>
+  <div class="masonry-sizer" style="width:33.3333%; float:left;"></div>
+  <div
+    class="masonry-item mb-2"
+    style="width:33.3333%; float:left;"
+    *ngFor="let c of contents; trackBy: trackById">
+    <app-card
+      [content]="c"
+      (onClickImageEvent)="openImageViewer($event)">
+    </app-card>
+  </div>
 </div>
+
+

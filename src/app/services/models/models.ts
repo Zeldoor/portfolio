@@ -4,10 +4,4 @@ export interface Content{
     imageUrl: string;
     description?: string;
     doc?: Date;
-    tags?: Tag[]
-}
-
-export enum Tag{
-    PORTRAIT = 'portrait',
-    WANAMA = 'wanama',
 }

@@ -3,7 +3,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 
 import { CardComponent } from '../card/card.component';
-import { Content, Tag } from '../../services/models/models';
+import { Content } from '../../services/models/models';
 import { ContentService } from '../../services/content.service';
 
 @Component({
