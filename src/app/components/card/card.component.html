@@ -1,0 +1,48 @@
+<div
+  class="relative w-full max-w-md overflow-hidden rounded-[32px] border-4 border-green-100 bg-gradient-to-br from-gray-50 to-white shadow-xl transition-transform duration-500 hover:scale-[1.02] hover:shadow-2xl"
+>
+  <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-green-100/10 z-0"></div>
+
+  <div *ngIf="content.title" class="relative z-10 p-3 border-b border-green-100">
+    <h2 class="text-center text-2xl font-extrabold text-green-800 tracking-tight">
+      {{ content.title || 'Progetto senza titolo' }}
+    </h2>
+  </div>
+
+    <button
+        class="relative z-10 w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-50 to-green-100 border-b border-green-100"
+        (click)="this.onClickImageEvent.emit(content)"
+            >
+        <img
+            *ngIf="content.imageUrl; else noImage"
+            [src]="content.imageUrl"
+            alt="Artwork"
+            class="w-full h-auto object-contain"
+        />
+        <ng-template #noImage>
+            <div class="text-center text-green-500 font-semibold text-lg p-6 w-full">
+            <div class="text-4xl mb-2">🌿</div>
+            Nessuna immagine disponibile
+            </div>
+        </ng-template>
+    </button>
+
+  <div *ngIf="hasDetails()" class="relative z-10 px-6 py-5 space-y-4">
+    <div *ngIf="content.doc" class="bg-green-100 text-green-600 font-semibold rounded-full inline-flex items-center gap-2 px-4 py-1 text-sm">
+      <span>🌱</span> {{ content.doc }}
+    </div>
+
+    <p *ngIf="content.description" class="text-green-800 text-base leading-relaxed font-medium">
+      {{ content.description }}
+    </p>
+
+    <div *ngIf="content.tags?.length" class="flex flex-wrap gap-2">
+      <span
+        *ngFor="let tag of content.tags"
+        class="bg-gradient-to-br from-green-400 to-green-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase shadow-md hover:shadow-lg transition-all"
+      >
+        {{ tag }}
+      </span>
+    </div>
+  </div>
+</div>
