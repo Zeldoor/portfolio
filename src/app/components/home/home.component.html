@@ -1,16 +1,15 @@
-<app-navbar></app-navbar>
-<div appMasonry class="masonry-container">
-
-  <div class="masonry-sizer" style="width:33.3333%; float:left;"></div>
-  <div
-    class="masonry-item mb-2"
-    style="width:33.3333%; float:left;"
-    *ngFor="let c of contents; trackBy: trackById">
-    <app-card
-      [content]="c"
-      (onClickImageEvent)="openImageViewer($event)">
-    </app-card>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div *ngFor="let col of [column1, column2, column3]; let i = index">
+    <div *ngFor="let c of col; trackBy: trackById" class="mb-4">
+      <app-card
+        [content]="c"
+        (onClickImageEvent)="openImageViewer($event)">
+      </app-card>
+    </div>
   </div>
 </div>
+
+
+<!-- Se Masonry non funziona posso creare tre colonne (grid grid-cols-1) e creare un ciclo che riempie tre array -->
 
 

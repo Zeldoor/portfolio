@@ -22,6 +22,8 @@
   }
 }
 
+/** MASONRY - NON PIù USATO */
+
 .masonry-container {
   display: block;
   position: relative;
@@ -34,5 +36,30 @@
 .masonry-sizer {
   width: 33.3333%;
 }
+
+/** SCROLBAR */
+
+/* Scrollbar naturale */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #d1fae5; /* emerald-100 */
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #10b981; /* emerald-500 */
+  border-radius: 9999px;
+  border: 2px solid #d1fae5; /* padding effetto */
+}
+
+/* Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #10b981 #d1fae5;
+}
+
 
 
