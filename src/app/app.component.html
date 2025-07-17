@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<div class="flex h-screen overflow-hidden">
+  <!-- Sidebar fissa -->
+  <div class="w-64 fixed top-0 left-0 h-screen z-10">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <!-- Spazio per contenuto scrollabile -->
+  <div class="flex-1 ml-64 overflow-y-auto p-6 bg-white custom-scrollbar">
+    <router-outlet></router-outlet>
+    </div>
+</div>
