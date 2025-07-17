@@ -1,7 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; URL=/portfolio/">
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+      (function () {
+        var redirectPath = location.pathname.replace('/portfolio/', '');
+        var newUrl = '/portfolio/?redirect=' + redirectPath + location.search + location.hash;
+        location.replace(newUrl);
+      })();
+    </script>
   </head>
   <body></body>
 </html>
