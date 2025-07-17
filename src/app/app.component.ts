@@ -13,11 +13,4 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 })
 export class AppComponent {
   title = 'portfolio';
-
-  constructor(private router: Router, private route: ActivatedRoute) {
-    const redirect = this.route.snapshot.queryParamMap.get('redirect');
-    if (redirect) {
-      this.router.navigateByUrl(redirect);
-    }
-  }
 }
