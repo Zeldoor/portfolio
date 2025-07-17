@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 
 @Component({
@@ -13,4 +13,11 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 })
 export class AppComponent {
   title = 'portfolio';
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    const redirect = this.route.snapshot.queryParamMap.get('redirect');
+    if (redirect) {
+      this.router.navigateByUrl(redirect);
+    }
+  }
 }
