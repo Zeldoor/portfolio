@@ -109,7 +109,6 @@ export class HomeComponent {
 
 
   openImageViewer(content: Content){
-    console.log(`opened image with id: ${content.id}`)
     this.router.navigate([`detail/${content.id}`]);
   }
 

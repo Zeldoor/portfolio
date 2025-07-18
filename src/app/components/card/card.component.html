@@ -6,7 +6,7 @@
     'max-h-0 py-0 opacity-0': !hasTitle
   }">
     <div class="relative z-10 px-3">
-      <h2 class="text-center text-2xl font-extrabold text-info tracking-tight">
+      <h2 class="text-center text-2xl font-extrabold text-title tracking-tight">
         {{ content.title || 'Progetto senza titolo' }}
       </h2>
     </div>
@@ -14,7 +14,7 @@
 
   <div
     class="relative z-10 w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-50 to-green-100 border-b border-green-100"
-    (click)="this.onClickImageEvent.emit(content)">
+    (click)="onClickImageEvent.emit(content)">
     <img *ngIf="content.imageUrl; else noImage" [src]="content.imageUrl" alt="Artwork"
       class="w-full h-auto object-contain" />
     <ng-template #noImage>

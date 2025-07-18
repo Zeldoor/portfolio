@@ -1,5 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContentService } from '../../services/content.service';
 import { Content } from '../../services/models/models';
 
@@ -18,8 +18,8 @@ export class CardDetailComponent implements OnInit{
 
   ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
-        let id: number = Number(params.get('id')!)
-        this.content = this.contentService.contents().find(c => c.id == id)!
+        let id: number = Number(params.get('id')!);
+        this.content = this.contentService.contents().find(c => c.id == id)!;
       })
   }
 }

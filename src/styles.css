@@ -4,11 +4,12 @@
 @theme {
   --color-primary:   #550421;
   --color-secondary: #D05463;
-  --color-info:      #665C75;
+  --color-info:      #ffffff;
   --color-success:   #10b981;
   --color-warning:   #f59e0b;
   --color-danger:    #ef4444;
   --color-border:    #665C75;
+  --color-title:     #000000;
 }
 
 /* body {

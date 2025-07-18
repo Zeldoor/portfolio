@@ -9,9 +9,11 @@ export const routes: Routes = [
         redirectTo:"home"
     },
     {
-        path:"home", component: HomeComponent
+        path:"home",
+        component: HomeComponent,
     },
     {
-        path:"detail/:id", component: CardDetailComponent
+        path:"detail/:id",
+        component: CardDetailComponent,
     }
 ];
