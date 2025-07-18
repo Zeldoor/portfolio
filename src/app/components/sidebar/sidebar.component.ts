@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarButton } from '../../services/models/models';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,4 +9,30 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+  buttons: SidebarButton[] = [
+    {
+      id:0,
+      label: 'Home',
+      path: 'home',
+      image: ''
+    },
+    {
+      id:1,
+      label: 'Gallery',
+      path: 'home',
+      image: ''
+    },
+    {
+      id:0,
+      label: 'Home',
+      path: 'home',
+      image: ''
+    },
+    {
+      id:0,
+      label: 'Home',
+      path: 'home',
+      image: ''
+    }
+  ]
 }
