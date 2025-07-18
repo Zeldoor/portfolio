@@ -29,8 +29,4 @@ export class CardComponent {
   hideTitle(): void{
     this.hasTitle = false;
   }
-
-  hasDetails(): boolean {
-    return this.content.description != undefined || this.content.doc != undefined;
-  }
 }

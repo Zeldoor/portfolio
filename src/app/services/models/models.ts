@@ -5,3 +5,10 @@ export interface Content{
     description?: string;
     doc?: Date;
 }
+
+export interface SidebarButton{
+    id: number;
+    label: string;
+    path: string;
+    image?: string;
+}
