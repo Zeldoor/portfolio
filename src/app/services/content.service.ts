@@ -2,6 +2,7 @@ import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { Content } from './models/models';
 import { HttpClient } from '@angular/common/http';
 import { interval, switchMap, timer } from 'rxjs';
+import { environment } from '../environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,10 @@ export class ContentService {
   http: HttpClient = inject(HttpClient);
 
 
-  private FOLDER_ID: string = '1pZcpQjmgPPeykhhfVTFP_gUPmoWnpm4r';
-  private API_KEY: string = 'AIzaSyD4MlmE4s5advGvi9JCIHjXwhA3--_x8zY';
-  private DB_URL: string = `https://www.googleapis.com/drive/v3/files?q=%27${this.FOLDER_ID}%27+in+parents&key=${this.API_KEY}&fields=files(id,name,webContentLink)`;
+  private DB_URL: string = `https://www.googleapis.com/drive/v3/files?q=%27${environment.folderId}%27+in+parents&key=${environment.apiKey}&fields=files(id,name,webContentLink)`;
 
   contents: WritableSignal<Content[]> = signal([])
-  refreshTime: number = 30*1000 //in millisecondi
+  refreshTime: number = environment.refreshTime*1000 //in millisecondi
 
 
   constructor(){
