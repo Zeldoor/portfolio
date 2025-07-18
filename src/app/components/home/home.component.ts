@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from '../card/card.component';
 import { Content } from '../../services/models/models';
 import { ContentService } from '../../services/content.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ import { ContentService } from '../../services/content.service';
 })
 export class HomeComponent {
 
-  contentService: ContentService = inject(ContentService)
+  contentService: ContentService = inject(ContentService);
+  router: Router = inject(Router);
 
   contents: Signal<Content[]> = computed(() => this.contentService.contents());
   screenWidth!: number;
@@ -107,7 +109,7 @@ export class HomeComponent {
 
 
   openImageViewer(content: Content){
-    console.log(`opened image with id: ${content.id}`)
+    this.router.navigate([`detail/${content.id}`]);
   }
 
   trackById(item: any){

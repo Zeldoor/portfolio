@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/** nuova direttiva tailwind per far funzionare le classi relative*/
+@theme {
+  --color-primary:   #550421;
+  --color-secondary: #D05463;
+  --color-info:      #ffffff;
+  --color-success:   #10b981;
+  --color-warning:   #f59e0b;
+  --color-danger:    #ef4444;
+  --color-border:    #665C75;
+  --color-title:     #000000;
+}
+
 /* body {
   font-family: 'Winky Rough', cursive;
 } */
