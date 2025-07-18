@@ -1,4 +1,4 @@
-import { Component, computed, HostListener, inject, Signal } from '@angular/core';
+import { Component, computed, effect, HostListener, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CardComponent } from '../card/card.component';
@@ -28,10 +28,17 @@ export class HomeComponent {
   column2: Content[] = [];
   column3: Content[] = [];
 
+  constructor(){
+  
+    effect(() => {
+      const list = this.contents();
+      this.clearColumns();
+      this.distributeContent();
+    });
+  }
+
   ngOnInit() {
     this.screenWidth = window.innerWidth;
-    this.clearColumns();
-    this.distributeContent();
   }
 
   @HostListener('window:resize', ['$event'])

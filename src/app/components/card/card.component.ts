@@ -17,6 +17,10 @@ export class CardComponent {
 
   hasTitle: boolean = false;
 
+  getImageUrl(): string{
+    return `https://drive.google.com/thumbnail?id=${this.content.id}`;
+  }
+
 
   showTitle(): void {
     this.hasTitle = true;
