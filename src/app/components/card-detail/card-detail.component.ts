@@ -1,9 +1,8 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, effect, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ContentService } from '../../services/content.service';
 import { Content } from '../../services/models/models';
 import { CommonModule } from '@angular/common';
-import { ɵEmptyOutletComponent } from "../../../../node_modules/@angular/router/router_module.d-Bx9ArA6K";
 
 @Component({
   selector: 'app-card-detail',
@@ -13,7 +12,7 @@ import { ɵEmptyOutletComponent } from "../../../../node_modules/@angular/router
   templateUrl: './card-detail.component.html',
   styleUrl: './card-detail.component.css'
 })
-export class CardDetailComponent implements OnInit{
+export class CardDetailComponent {
 
   route: ActivatedRoute = inject(ActivatedRoute);
   contentService: ContentService = inject(ContentService);
@@ -21,10 +20,14 @@ export class CardDetailComponent implements OnInit{
   content!: Content;
   showInfo: boolean = false;
 
-  ngOnInit(): void {
+  constructor(){
+    effect(() => {
+      const list = this.contentService.contents();
       this.route.paramMap.subscribe(params => {
         let id: string = params.get('id')!;
         this.content = this.contentService.contents().find(c => c.id === id)!;
+        console.log(this.content);
       })
+    });
   }
 }

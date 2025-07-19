@@ -5,6 +5,7 @@ import { CardComponent } from '../card/card.component';
 import { Content } from '../../services/models/models';
 import { ContentService } from '../../services/content.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +18,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  contentService: ContentService = inject(ContentService);
   router: Router = inject(Router);
+  userService: UserService = inject(UserService);
+  contentService: ContentService = inject(ContentService);
 
   contents: Signal<Content[]> = computed(() => this.contentService.contents());
   screenWidth!: number;

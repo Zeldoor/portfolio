@@ -16,12 +16,13 @@ export class CardComponent {
   @Output() onClickImageEvent: EventEmitter<Content> = new EventEmitter<Content>;
 
   hasTitle: boolean = false;
+  hasLoaded: boolean = false;
 
-  getImageUrl(): string{
-    return `https://drive.google.com/thumbnail?id=${this.content.id}`;
+  loaded(): void{
+    this.hasLoaded = true;
   }
 
-
+  
   showTitle(): void {
     this.hasTitle = true;
   }

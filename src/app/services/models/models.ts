@@ -16,5 +16,18 @@ export interface SidebarButton{
 export interface Content{
     id: string;
     name: string;
+    imageUrl?: string;
+    description?: string;
     webContentLink: string;
+}
+
+export interface User{
+    firstName: string,
+    lastName: string,
+    nick: string,
+    birthDate: string,
+    age: number,
+    description: string,
+    gender: string,
+    city: string,
 }
